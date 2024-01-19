@@ -21,7 +21,7 @@ from .genotype import Genotype
 from .haplotype import Haplotype
 from typing import List
 from .ref_data import RefData
-from pyard import ARD
+from pyard.ard import ARD
 from typing import Union, Tuple, Dict
 import pandas as pd
 from .dataset import Dataset

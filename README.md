@@ -26,7 +26,7 @@
 
 
 # Background [⤴](#table-of-contents)
-This repository supports the annotation of *HLA-DPB1* from reference data on the [IPD-IMGT/HLA database](https://www.ebi.ac.uk/ipd/imgt/hla/) via two models as detailed by [Sajulga et al. 2023](https://pubmed.ncbi.nlm.nih.gov/37126658/):
+This repository supports the annotation of *HLA-DPB1* from reference data on the [IPD-IMGT/HLA database](https://www.ebi.ac.uk/ipd/imgt/hla/) via two models:
 
 | Model | Background | Reference data | Papers |
 | -     | -          | -              | -      |
@@ -43,7 +43,6 @@ There are several methods of accessing this information and annotating *HLA-DPB1
 
 # Suite [⤴](#table-of-contents)
 ## DPdb [⤴](#table-of-contents)
-
 ### Setup
 
 To begin, ensure that you have Python3 installed. To check, issue this command to verify your python version:
@@ -61,13 +60,11 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### Python package installation
+Pip is the package installer for Python. It comes pre-packaged with Python. This will be used to install our requirements as such:
 ```
-pip install hlann
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
-
-Pip is the package installer for Python. It comes pre-packaged with Python. 
-
 
 #### Python package loading
 Open a python instance.
@@ -77,15 +74,15 @@ python
 
 Load the python package for annotation.
 ```
-from hlann.hlann import HLAnn
-dp_db = HLAnn(db_version='3540', verbose=True)
+from hla_seq_db.hla_seq_db import HlaDB
+dp_db = HlaDB(loci=['DPB1'], db_version='3540', verbose=True)
 ```
 
 ### Usage
 #### Allele
 Command
 ```
-dp_db.annotate_allele('DPB1*01:AETTG')
+dp_db.annotate_allotype('DPB1*01:AETTG').serialize()
 ```
 <details>
 <summary>Result</summary>
@@ -127,7 +124,7 @@ dp_db.annotate_allele('DPB1*01:AETTG')
 #### Genotype
 Command
 ```
-dp_db.annotate_genotype('DPB1*01:AETTA+DPB1*04:AETTB')
+dp_db.annotate_genotype('DPB1*01:AETTA+DPB1*04:AETTB').serialize()
 ```
 <details>
 <summary>Result</summary>
@@ -223,9 +220,9 @@ dp_db.annotate_genotype('DPB1*01:AETTA+DPB1*04:AETTB')
 #### Matches
 Command
 ```
-dp_db.annotate_match('DPB1*04:01+DPB1*40:01', 'DPB1*40:01+DPB1*40:01')
+dp_db.annotate_match('DPB1*04:01+DPB1*40:01', 'DPB1*40:01+DPB1*40:01').serialize()
 ```
-<details>
+<details>®
 <summary>Result</summary>
 <pre>
 {
@@ -428,7 +425,7 @@ cd webapp
 ```
 Execute the command below(keep an eye on required "." at the end of the command)
 ```
-docker build --build-arg CONFIGURATION="" -t nmdpbioinformatics/dp-tool-ui-app .
+docker build --build-arg CONFIGURATION="" -t nmdpbioinformatics/dp-tool-ui-app -f Dockerfile-web .
 ```
 Now the image should be built and available in the local docker registry.
 

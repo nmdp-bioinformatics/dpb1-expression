@@ -24,7 +24,7 @@ from Bio.SeqFeature import SeqFeature, FeatureLocation, CompoundLocation
 from .util import get_two_field_allele, calc_hla_class
 import pandas as pd
 from typing import List, Tuple, Dict, Union
-from pyard import ARD
+from pyard.ard import ARD
 import editdistance
 import inflect
 

@@ -19,7 +19,7 @@ from .allotype import Allotype
 from .haplotype import Haplotype
 from .ref_data import RefData
 from .allotype_match import AllotypeMatch
-from pyard import ARD
+from pyard.ard import ARD
 from typing import Tuple, List, Dict
 
 class HaplotypeMatch(object):

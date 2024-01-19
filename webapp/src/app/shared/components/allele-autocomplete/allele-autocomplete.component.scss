@@ -20,7 +20,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 @import '../../../../styles.scss';
 
 div {
-    width: 135px;
+    width: 120px;
     height: 28px;
     font-size: 14px;
     margin-top: 2px;
@@ -73,7 +73,7 @@ span.prefix {
 
 input {
     height: 22px;
-    width: 80px;
+    width: 58px;
     background-color: white;
     box-shadow: inset 1px 1px 1px #a6a6a6;
     margin-top: -5px;
@@ -82,7 +82,7 @@ input {
 }
 
 ::ng-deep .mat-form-field-infix {
-    width: 80px !important;
+    width: 60px !important;
     border-top: 1px solid transparent;
 }
 

@@ -20,7 +20,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 @import '../../../../styles.scss';
 
 :host {
-    background-color: $SECONDARY_GREEN;
+    background-color: $TERTIARY_BLUE;
     border-radius: 5px;
 }
 
@@ -36,10 +36,10 @@ button {
 }
 
 .notification {
-    font-size: 12px;
+    font-size: 7px;
     color: green;
     float: left;
-    line-height: 7px;
+    line-height: 16px;
     margin-left: 5px;
 }
 
@@ -59,7 +59,7 @@ button:disabled {
 
 .order {
     height: 30px;
-    width: 120px;
+    width: 142px;
     float: left;
     font-size: 12px;
     line-height: 20px;

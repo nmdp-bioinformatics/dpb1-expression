@@ -67,9 +67,9 @@
     </table>
 </div>
 <div mat-dialog-actions>
-    <button mat-button
+    <p-button pRipple mat-button
         class="dialog-import"
-           [mat-dialog-close]= "data.dataRows">Import</button>
+           [mat-dialog-close]= "data.dataRows">Import</p-button>
     <div
         class="overflow-warning"
         *ngIf="data.dataRows?.length > limit">

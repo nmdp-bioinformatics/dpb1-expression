@@ -17,18 +17,18 @@
 -- You should have received a copy of the GNU Lesser General Public License
 -- along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
-<button tabindex="4"
+<p-button pRipple tabindex="4"
         (click)="sort()"
         class="sort"
         [hidden]="sorted && sameGenotypesWhenSorted()"
-        [disabled]="donors.length <= 1 || patient.length > 1">Sort</button>
+        [disabled]="donors.length <= 1 || patient.length > 1">Sort</p-button>
 <p class="notification"
         [hidden]="!(sorted && sameGenotypesWhenSorted())">
-        ✅ Donor list has been sorted!</p>
-<button tabindex="4"
+        ✅ List has been sorted!</p>
+<p-button pRipple tabindex="4"
         (click)="unsort()"
         class="unsort"
-        [hidden]="!(sorted && sameGenotypesWhenSorted())">Unsort</button>
+        [hidden]="!(sorted && sameGenotypesWhenSorted())">Unsort</p-button>
 <div class="order">
         <!-- <div class="header">
                 <span>1</span>
@@ -36,8 +36,8 @@
         </div> -->
         <div class="methods">
                 <div class="method"> ① {{methodsDisplayMap[methods[0]]}}</div>
-                <button class="switch"
-                        (click)="switch()">↔</button>
+                <p-button pRipple class="switch"
+                        (click)="switch()">↔</p-button>
                 <div class="method"> ② {{methodsDisplayMap[methods[1]]}}</div>
         </div>
 </div>

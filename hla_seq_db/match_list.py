@@ -19,7 +19,7 @@ from .genotype import Genotype
 from .ref_data import RefData
 from typing import List, Union, Dict, Tuple
 import pandas as pd
-from pyard import ARD
+from pyard.ard import ARD
 
 class MatchList(object):
     

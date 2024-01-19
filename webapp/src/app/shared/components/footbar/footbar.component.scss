@@ -17,11 +17,13 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+@import '../../../../styles.scss';
+
 :host {
     width: 100vw;
+    min-width: 800px;
     height: 15px;
-    background-color: #0077C5;
-    min-width: 660px;
+    background-color: $PRIMARY_BLUE;
     text-align: center;
     line-height: 15px;
     color: white;

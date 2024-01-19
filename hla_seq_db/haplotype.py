@@ -19,7 +19,7 @@ import re
 from .allotype import Allotype
 from .ref_data import RefData
 from typing import Union, Dict, List, Tuple
-from pyard import ARD
+from pyard.ard import ARD
 import pandas as pd
 from .dataset import Dataset
 

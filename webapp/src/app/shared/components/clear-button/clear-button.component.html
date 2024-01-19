@@ -17,6 +17,6 @@
 -- You should have received a copy of the GNU Lesser General Public License
 -- along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
-<button tabindex="-1" 
+<p-button pRipple tabindex="-1" 
     [disabled]="empty()"
-    (click)="clearAll()">Clear {{type}}{{subjects.length > 1 ? 's' : ''}}</button>
+    (click)="clearAll()">Clear {{type}}{{subjects.length > 1 ? 's' : ''}}</p-button>
