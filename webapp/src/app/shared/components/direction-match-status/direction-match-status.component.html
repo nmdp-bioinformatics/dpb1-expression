@@ -1,0 +1,13 @@
+<div class="disable-select"
+    *ngIf="data"
+     [ngbTooltip]="tooltipContent"
+     container="body">
+     {{data == 'bidirectional' ? '↔' :
+        data == 'GvH' ? '←' :
+          data == 'HvG' ? '→' : ''}}
+</div>
+<ng-template #tooltipContent>
+    <div *ngIf="data" class="tooltip">
+        <p>The expression level of the mismatched HLA-DPB1 allele of the patient is {{data}}</p>
+    </div>
+</ng-template>

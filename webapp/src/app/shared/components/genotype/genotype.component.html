@@ -1,0 +1,44 @@
+<!--
+-- Copyright (c) 2024 NMDP.
+--
+-- This file is part of the NMDP DP Tool 
+-- (see https://github.com/nmdp-bioinformatics/dpb1-expression).
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU Lesser General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU Lesser General Public License for more details.
+--
+-- You should have received a copy of the GNU Lesser General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<app-allotype
+    *ngFor="let allotype of (subject.flipped ? subject.allotypes.slice().reverse() : subject.allotypes); let i = index;"
+    [allotype]="allotype"
+    [index]="i"
+    [selected]="selectIndex == index"
+    [patient]="patient ? (patient.length == 1 ? patient[0] : patient[index]) : null"
+    [movedPatientGenotype]="movedPatientGenotype"
+    [expressionMap]="expressionMap"
+    (allotypeUpdated)="updateInfo($event)"
+    [subject]="subject">
+</app-allotype>
+<div
+    class="flip-icon"
+    *ngIf="subject.flipped"
+    [ngbTooltip]="tooltipContent">↕</div>
+<ng-template #tooltipContent>
+    <div class="tooltip">
+        This donor's alleles were flipped to align with the patient's alleles.
+    </div>
+</ng-template>
+<!-- <p style="z-index: 100; position: relative; right: -146px; top: -72px; background-color: white; font-size: 10px; width: 130px; height: 0px;">
+genotype: {{subject.genotype}}
+displayed: {{subject.genotypeDisplayed}}
+flipped: {{subject.flipped}}
+</p> -->

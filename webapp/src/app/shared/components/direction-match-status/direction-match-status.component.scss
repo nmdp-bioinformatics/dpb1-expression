@@ -1,0 +1,27 @@
+:host {
+    width: 23px;
+    padding: 6px 0px 5px 3px;
+    float: left;
+    font-family: Arial;
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.tooltip {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    width: 300px;
+    font-size: 12px;
+}
+
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}

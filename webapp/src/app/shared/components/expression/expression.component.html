@@ -1,0 +1,55 @@
+<!--
+-- Copyright (c) 2024 NMDP.
+--
+-- This file is part of the NMDP DP Tool 
+-- (see https://github.com/nmdp-bioinformatics/dpb1-expression).
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU Lesser General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU Lesser General Public License for more details.
+--
+-- You should have received a copy of the GNU Lesser General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<div class="disable-select"
+     [ngClass] = "[type, allotype.exprLevel?.includes('?') ? 'highly-ambiguous' : 
+                         allotype.exprLevel?.includes('~') ? 'ambiguous' : '',
+                         allotype.alleles ? 'clickable' : '']"
+     [ngbTooltip]="tooltipContent"
+     (click)="openAllelePanel()"
+     container="body">
+     <img src="/assets/img/loading-indicator.gif"
+            *ngIf="allotype.initiatedCall && allotype.submittedHlaB != allotype.typing"
+            width="10px">
+    <span
+        *ngIf="allotype.submittedHlaB == allotype.typing">
+        <span class="arrow" [ngClass]="type == 'patient' && allotype.exprLevel">
+            {{  !allotype.exprLevel || allotype.exprLevel == 'unknown' ? '▶' :
+                allotype.exprLevel.includes('high') ? '▲' :
+                allotype.exprLevel.includes('low') ? '▼' :
+                    '▶'}}</span>
+        {{ allotype.exprLevel == 'unknown' ? 'unk.' :
+             (processExpressionText(allotype.exprLevel.replace('~', '')) || '⚠️')}}
+    </span>
+</div>
+<ng-template #tooltipContent>
+    <div class="tooltip">
+        <p *ngIf="allotype.exprLevel == 'unknown'">
+            This allele does not have exon 3 data available (or has a null suffix), so the expression level is unknown.
+        </p>
+        <p *ngIf="!allotype.exprLevel">This allele was not found within the database.</p>
+        <p *ngIf="allotype.exprLevel?.includes('~') || allotype.exprLevel?.includes('?')">
+            Click for more information on expanded alleles.
+        </p>
+        <p *ngIf="allotype.exprLevel != 'unknown'">
+            Expression level: {{processExpressionText(allotype.exprLevel)}}</p>
+        <p *ngIf="allotype.exprLevel != 'unknown'">
+            Experimentally confirmed?: {{processExpressionText(allotype.exprAnnotType)}}</p>
+    </div>
+</ng-template>

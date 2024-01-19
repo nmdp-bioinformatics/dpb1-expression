@@ -1,0 +1,7 @@
+<div *ngFor="let matchCode of subject.hlaMatch; let i = index;"
+    class="matchBlocks">
+        <app-match-block
+            [matchCode]="matchCode"></app-match-block>
+</div>
+<app-direction-match-status
+    [data]="subject.directionality"></app-direction-match-status>

@@ -1,0 +1,20 @@
+<div class="disable-select"
+     [ngClass] = "[allotype.highlighted ? 'highlighted' : '']"
+     [ngbTooltip]="tooltipContent"
+     container="body">
+     <img src="/assets/img/loading-indicator.gif"
+            *ngIf="allotype.initiatedCall && allotype.submittedHlaB != allotype.typing"
+            width="10px">
+      {{allotype.tce == 'NA' ? '⚠️' :
+        allotype.submittedHlaB == allotype.typing ? 
+        allotype.tce.replace('unknown', '?') :
+         ''}}
+</div>
+<ng-template #tooltipContent>
+    <div *ngIf="allotype.tce != 'NA'" class="tooltip">
+        <p>TCE group: {{allotype.tce}}</p>
+    </div>
+    <div *ngIf="allotype.tce == 'NA'" class="tooltip">
+        This TCE was unable to be determined.
+    </div>
+</ng-template>

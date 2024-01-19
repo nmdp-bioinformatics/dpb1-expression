@@ -1,0 +1,53 @@
+<h2>Allele expansion of <i>HLA-DPB1*{{ data.allotype.typing }}</i></h2>
+<p>More information on CIWD assignments can be found in this
+<a target="_blank" href="https://onlinelibrary.wiley.com/doi/full/10.1111/tan.13811">
+    manuscript</a> (Hurley et al. 2020). 
+    For instance, the CIWD categories were ordered as such: C (Common) > I (Intermediate) > WD (Well Documented).</p>
+
+<table mat-table [dataSource]="data.allotype.alleles" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Typing Column -->
+    <ng-container matColumnDef="typing">
+      <th mat-header-cell *matHeaderCellDef> Typing </th>
+      <td mat-cell *matCellDef="let element"> <i>HLA-{{element.typing}}</i> </td>
+    </ng-container>
+
+    <!-- Typing Column -->
+    <ng-container matColumnDef="ciwd">
+        <th mat-header-cell *matHeaderCellDef> CIWD </th>
+        <td mat-cell *matCellDef="let element"> 
+            {{element.ciwd}} 
+        </td>
+    </ng-container>
+  
+    <!-- Exon 3 Motif Column -->
+    <ng-container matColumnDef="exon3Motif">
+      <th mat-header-cell *matHeaderCellDef> Exon 3 Motif </th>
+      <td mat-cell *matCellDef="let element"> {{element.exon3Motif}} </td>
+    </ng-container>
+
+    <!-- 3' UTR Motif Column -->
+    <ng-container matColumnDef="utr3Motif">
+        <th mat-header-cell *matHeaderCellDef> rs9277534 </th>
+        <td mat-cell *matCellDef="let element"> {{element.utr3Motif}} </td>
+    </ng-container>
+
+    <!-- Experimental Column -->
+    <ng-container matColumnDef="experimental">
+        <th mat-header-cell *matHeaderCellDef> Expression levels were experimentally confirmed </th>
+        <td mat-cell *matCellDef="let element"> {{element.experimental}} </td>
+    </ng-container>
+
+    <!-- Experimental Column -->
+    <ng-container matColumnDef="exprLevel">
+        <th mat-header-cell *matHeaderCellDef> Predicted expression level </th>
+        <td mat-cell *matCellDef="let element"> {{element.exprLevel | titlecase}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

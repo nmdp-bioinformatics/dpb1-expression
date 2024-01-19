@@ -1,0 +1,105 @@
+/*
+Copyright (c) 2024 NMDP.
+
+This file is part of the NMDP DP Tool 
+(see https://github.com/nmdp-bioinformatics/dpb1-expression).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+:host {
+    width: 100%;
+    float: left;
+    font-family: Arial;
+    border-bottom: 1px solid #9AA3A8;
+    color: #767676;
+}
+
+
+:host.patient {
+    width: 40%;
+    float: left;
+}
+
+:host.donors {
+    width: 60%;
+}
+
+h3 {
+    text-align: center;
+    height: 0px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 0px;
+    color: black;
+}
+
+#id {
+}
+
+.header-bar {
+    width:100%;
+    height: 30px;
+}
+
+.header {
+    width: 178px;
+    height: 100%;
+    font-size: 12px;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+}
+
+.top-header, .subheaders {
+    width: 100%;
+    height: 50%;
+    line-height: 30px;
+}
+
+.subheaders {
+    font-weight: normal;
+    div {
+        line-height: 30px;
+        height: 100%;
+        float: left;
+    }
+}
+
+.input {
+    float: left;
+    #id { width:86px }
+    #typing { width: 220px; }
+    .typing {
+        width:147px;
+     }
+    .expression {
+        width: 46px; 
+    }
+    .tce {
+        width: 10px;
+    }
+}
+
+ .matching-status {
+    width: 200px;
+    float: left;
+    .expression { 
+        width: 67px;
+        text-align:left;
+        padding-left: 18px; 
+    }
+    .typing { width:62px; }
+    #matching { width: 167px; }
+    #rank { width: 30px; }
+}

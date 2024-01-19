@@ -1,0 +1,28 @@
+<div class="banner disable-select"
+    [ngClass]="data"
+     [ngbTooltip]="tooltipContent"
+     container="body">
+     <div class="na" *ngIf="!data">
+        N/A
+     </div>
+     <div *ngIf="data">
+         {{ getInfo()['category'] }}
+         <img *ngIf="data != 'unknown'" [src]="getInfo()['filepath']"/>
+     </div>
+</div>
+<ng-template #tooltipContent>
+    <div *ngIf="annotated" class="tooltip">
+        <div *ngIf="data && mode == 'expr'">
+            <p>The expression level of the mismatched <i>HLA-DPB1</i> allele of the patient is {{data}}</p>
+        </div>
+        <div *ngIf="data && mode == 'tce'">
+            <p>The TCE matching category is {{ getInfo()['categoryExpanded'] }}</p>
+        </div>
+        <div *ngIf="!data && mode == 'expr'">
+            <p>The expression model does not apply for this donor.</p>
+        </div>
+        <div *ngIf="!data && mode == 'tce'">
+            <p>The TCE matching category was unable to be determined.</p>
+        </div>
+    </div>
+</ng-template>

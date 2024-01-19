@@ -1,0 +1,58 @@
+<!--
+-- Copyright (c) 2024 NMDP.
+--
+-- This file is part of the NMDP DP Tool 
+-- (see https://github.com/nmdp-bioinformatics/dpb1-expression).
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU Lesser General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU Lesser General Public License for more details.
+--
+-- You should have received a copy of the GNU Lesser General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<div class="indicator-wrapper"
+    *ngIf="sorting && subjects[0].type=='donor'">
+    <img src="/assets/img/bar-loading-indicator.gif"
+            class="loading-indicator">
+</div>
+<div class="content"
+        [ngClass]="{'multiple-patients' : type == 'patient' && subjects.length > 1}"
+        (scroll)="onScroll($event)" #content>
+    <app-subject-row
+        [ngClass]="{'selected' : i == selectIndex && ((type == 'donors' && patient?.length <= 1) ||
+                    (type == 'patient' && subjects.length <= 1))}"
+        *ngFor="let subject of subjects.slice(0, limit); let i = index"
+        [index]="i"
+        [flippedPatient]="flippedPatient"
+        [patient]="patient"
+        [subject]="subject"
+        [subjects]="subjects"
+        [matchParadigm]="'expression'"
+        [selectIndex]="selectIndex"
+        [movedPatientGenotype]="movedPatientGenotype"
+        (notifyMovedPatientGenotype)="emitMovedPatientGenotype($event)"
+        (removeSubject)="removeSubject($event)"
+        [expressionMap]="expressionMap"></app-subject-row>
+    <img
+        src="/assets/img/add-button.png"
+        tabindex="2"
+            *ngIf="(type=='donors' || (type=='patient' && subjects.length > 1))
+                    && subjects.length < limit"
+            (keyup.enter)="addSubject()"
+            (keyup.Space)="addSubject()"
+            (keyup.tab)="addSubject()"
+            (click)="addSubject()">
+    <div class="spacer"
+        *ngIf="type=='donors' || (type=='patient' && subjects.length > 1)"> 
+            <div *ngIf="type == 'donors' == subjects.length >= limit">
+                There is a limit of  {{limit}}.
+            </div>
+    </div>
+</div>

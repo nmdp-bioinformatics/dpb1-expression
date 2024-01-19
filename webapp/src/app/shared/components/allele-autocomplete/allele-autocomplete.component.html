@@ -1,0 +1,49 @@
+<!--
+-- Copyright (c) 2024 NMDP.
+--
+-- This file is part of the NMDP DP Tool 
+-- (see https://github.com/nmdp-bioinformatics/dpb1-expression).
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU Lesser General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU Lesser General Public License for more details.
+--
+-- You should have received a copy of the GNU Lesser General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<div [ngClass]="{'editing' : allotypeForm.value != allotype.typing,
+                'sharedAllotype1' : (allotype.typing == allotype.submittedHlaB && (index == 0 && subject.type == 'patient')) || allotype.sharedIndex == 0  || (index == 0 && allotype.sharedIndex == 2),
+                'sharedAllotype2' : (allotype.typing == allotype.submittedHlaB && (index == 1 && subject.type == 'patient')) || allotype.sharedIndex == 1 ||  (index == 1 && allotype.sharedIndex == 2)}">
+    <span class="prefix"
+        [ngClass]="allotypeForm.value == allotype.typing ? 'mat-active' : ''">DPB1*</span>
+    <mat-form-field>
+        <input
+            tabindex="1"
+            type="text"
+            matInput
+            [ngStyle]="{'background-color' : transparent ? 'transparent' : 'white',
+                        'color' : movedPatientGenotype ? 'red' : 'black'}"
+            [formControl]="allotypeForm"
+            (blur)="submitAllele()"
+            [matAutocomplete]="auto">
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option 
+            *ngFor="let option of filteredOptions | async"
+            class="options"
+            [ngClass] = "expressionMap['DPB1*' + option]"
+            (click)="submitAllele()"
+            [value]="option">
+            {{option}}
+        </mat-option>
+    </mat-autocomplete>
+</div>
+<!-- <div style="position : absolute; right: -60px; width: 40px; opacity: 0.9; z-index: 100;">
+    {{allotypeForm.value}}
+    {{allotype.typing}}</div> -->
