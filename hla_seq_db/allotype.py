@@ -29,7 +29,7 @@ import hla_seq_db
 # from .annotation import Annotation
 from .sequence import Sequence
 from typing import List, Dict, Tuple, Union
-from pyard import ARD
+from pyard.ard import ARD
 import pandas as pd
 import time
 import regex
@@ -245,7 +245,7 @@ class Allotype(object):
             result = self.ard.redux(typing, mode)
         else:
             try:
-                result = self.ard.redux_gl(typing, mode)
+                result = self.ard.redux(typing, mode)
             except Exception as e:
                 if self.resolution == 'g_group':
                     return self.typing

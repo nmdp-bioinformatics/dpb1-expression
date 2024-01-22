@@ -26,7 +26,7 @@ from .snp import Snp
 from Bio.Seq import Seq
 # from Bio.Alphabet import IUPAC
 import editdistance
-from pyard import ARD
+from pyard.ard import ARD
 
 class AllotypeMatch(object):
     

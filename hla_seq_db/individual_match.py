@@ -23,7 +23,7 @@ from .ref_data import RefData
 from .genotype_match import GenotypeMatch
 from .allotype_match import AllotypeMatch
 from .haplotype_match import HaplotypeMatch
-from pyard import ARD
+from pyard.ard import ARD
 import pandas as pd
 from typing import Tuple, Union
 from .dataset import Dataset

@@ -18,33 +18,68 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 html {
-    font-family: Arial;
+    font-family: "DM Sans";
     overflow-x: hidden;
     background-color: #f5f5f5;
+    min-width: 800px;
+    color: #575757;
 }
 
 $HIGHLIGHT: white; //rgb(255,183,3);
-$PRIMARY_BLUE: #0077C5;
-$SECONDARY_BLUE: #2E9DDF;
-$PRIMARY_GREEN: #BCCC2A;
-$SECONDARY_GREEN: #D2DF58;
-$T_LEADER: #ffcb88;
-$M_LEADER: #9c5494;
+$PRIMARY_BLUE: #1767A3;
+// $PRIMARY_BLUE: #0077C5;
+$SECONDARY_BLUE: #0079C1;
+$TERTIARY_BLUE: #CCE9FF;
+$PRIMARY_GREEN: #BDCC2A;
+$SECONDARY_GREEN: #BDCC2A;
+$T_LEADER: #EB7100;
+$M_LEADER: #B00020;
 
 // .high { border: 1px solid $T_LEADER; background-color: white; color: black;}
 // .low { border: 1px solid $M_LEADER; background-color: white; color: black;}
 .unknown { background-color: grey;}
 
 h1 {
-    font-family: Arial;
     font-size: 36;
+    color: #00355E;
 }
 
-button {
-    background-color: $PRIMARY_BLUE;
-    color: white;
-}
-
-button:hover {
-    background-color: $SECONDARY_BLUE;
-}
+.p-button {
+    background-color: #0079C1 !important;
+    border: 1px solid transparent !important;
+    border-radius: 3px !important;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 0.2;
+    margin: 5px;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    border-radius: 20px !important;
+    float: left;
+  }
+  
+  button:hover,
+  button:focus {
+    background-color: #07c;
+  }
+  
+  button:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  button:active {
+    background-color: #0064bd;
+    box-shadow: none;
+  }

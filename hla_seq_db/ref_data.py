@@ -26,7 +26,7 @@ from .sequence import Sequence
 from .util import get_two_field_allele, calc_hla_class
 from .ref_data_locus import RefDataLocus
 from hla_seq_db.features import Features
-from pyard import ARD
+from pyard.ard import ARD
 import pandas as pd
 import time
 

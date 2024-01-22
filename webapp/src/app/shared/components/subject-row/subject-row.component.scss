@@ -32,7 +32,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 }
 
 .genotype { 
-    min-width:258px; 
+    min-width:240px; 
     box-shadow: 1px 1px 1px 1px #ccc;
     border-radius: 2px;
     -webkit-transition: width 1s;
@@ -54,13 +54,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 :host > div.id{
     border-left: 0px;
-    width:85px;
+    width:76px;
     box-shadow: 1px 1px 1px 1px #ccc;
 }
 
 input {
     padding: 5px;
-    width: 62px;
+    width: 52px;
     height: 11px;
     font-size: 12px;
     z-index:0;
@@ -104,7 +104,7 @@ button {
     height: 6px;
     padding: 24px 1px 10px 0px;
     position: absolute;
-    right: 200px;
+    right: 170px;
     top: -23px;
 }
 

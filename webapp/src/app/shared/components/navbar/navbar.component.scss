@@ -17,10 +17,12 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+@import '../../../../styles.scss';
+
 :host {
     width: 100vw;
     height: 60px;
-    background-color: #0077C5;
+    background-color: $PRIMARY_BLUE;
     position:absolute;
     top: 0px;
     left: 0px;
@@ -33,7 +35,7 @@ img {
 }
 
 #img_holder {
-    width: 190px;
+    width: 150px;
     height: 100%;
     float: left;
 }
@@ -48,6 +50,7 @@ h1 {
 
 .subbar {
     width: 100vw;
+    min-width: 800px;
     height: 3px;
     background-color: #BCCC2A;
     float: left;

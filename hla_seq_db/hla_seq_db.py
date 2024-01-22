@@ -40,7 +40,7 @@ import cProfile, pstats, io
 from pstats import SortKey
 import time
 import pandas as pd
-from pyard import ARD
+from pyard.ard import ARD
 from hla_seq_db.sequence_search import SeqSearch
 
 # Antigen-level

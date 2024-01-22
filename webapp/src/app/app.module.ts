@@ -19,7 +19,7 @@
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { FileSaverModule } from 'ngx-filesaver';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ReactiveFormsModule,
          FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -30,6 +30,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -68,6 +70,12 @@ import { TceComponent } from './modules/dp_tool/tce/tce.component';
 import { DirectionMatchStatusComponent } from './shared/components/direction-match-status/direction-match-status.component';
 import { HlaMatchComponent } from './shared/components/hla-match/hla-match.component';
 import { AlleleExpansionComponent } from './shared/components/allele-expansion/allele-expansion.component';
+import { PrimeNGConfig } from 'primeng/api';
+
+const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
+    // ......
+    primeConfig.ripple = true;
+  };
 
 @NgModule({
     declarations: [
@@ -118,13 +126,23 @@ import { AlleleExpansionComponent } from './shared/components/allele-expansion/a
         MatTooltipModule,
         NgbModule,
         BrowserAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        ButtonModule,
+        RippleModule,
     ],
     exports: [
         MatDialogModule,
         MatProgressBarModule
     ],
-    providers: [Papa, FileSaverService],
+    providers: [
+        Papa, FileSaverService,
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initializeAppFactory,
+            deps: [PrimeNGConfig],
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

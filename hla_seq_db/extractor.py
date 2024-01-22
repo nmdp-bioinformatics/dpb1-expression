@@ -28,7 +28,7 @@ from collections import Counter
 from .sequence import Sequence
 from hla_seq_db.sequence_feat_searched import SeqFeatSearched
 import re
-from pyard import ARD
+from pyard.ard import ARD
 
 class Extractor(object):
     def __init__(self, annotator : Annotator = None,
